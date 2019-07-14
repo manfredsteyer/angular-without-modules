@@ -16,3 +16,12 @@ export function getDef<T>(t: Type<T>): ComponentDef<T> {
 export function getDefs(types: Type<any>[]): ComponentDef<any>[] {
   return types.map(t => getDef(t));
 }
+
+export function ComponentDeps(types: Type<any>[]) {
+  return (component) => {
+    const def = getDef(component);
+    def.directiveDefs = [
+      ...getDefs(types)
+    ];
+  }
+}

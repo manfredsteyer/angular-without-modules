@@ -1,7 +1,8 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter } from '@angular/core';
 import { TabComponent } from './tab.component';
-import { getDef } from '../util';
+import { getDef, getDefs, ComponentDeps } from '../util';
 import { NgIf, NgForOf } from '@angular/common';
+import { COMMON_DIRECTIVES } from '../common';
 
 @Component({
     selector: 'tabbed-pane',
@@ -27,6 +28,9 @@ import { NgIf, NgForOf } from '@angular/common';
         </div>
     `
 })
+@ComponentDeps([
+    ...COMMON_DIRECTIVES
+])
 export class TabbedPaneComponent implements AfterContentInit {
 
     tabs: Array<TabComponent> = [];
@@ -65,9 +69,8 @@ export class TabbedPaneComponent implements AfterContentInit {
     }
 }
 
-const def = getDef(TabbedPaneComponent);
+// const def = getDef(TabbedPaneComponent);
 
-def.directiveDefs = [
-    getDef(NgIf),
-    getDef(NgForOf)
-];
+// def.directiveDefs = [
+//     ...getDefs(COMMON_DIRECTIVES)
+// ];
