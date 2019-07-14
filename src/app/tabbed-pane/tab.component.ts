@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Optional } from '@angular/core';
 import { TabbedPaneComponent } from './tabbed-pane.component';
+import { getDef } from '../util';
+import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
     selector: 'tab',
@@ -23,3 +25,10 @@ export class TabComponent implements OnInit {
         }
     }
 }
+
+const def = getDef(TabComponent);
+
+def.directiveDefs = [
+    getDef(NgIf),
+    getDef(NgForOf)
+];

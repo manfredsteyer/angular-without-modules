@@ -1,5 +1,7 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter } from '@angular/core';
 import { TabComponent } from './tab.component';
+import { getDef } from '../util';
+import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
     selector: 'tabbed-pane',
@@ -62,3 +64,10 @@ export class TabbedPaneComponent implements AfterContentInit {
         this.activate(this.tabs[this.currentPage]);
     }
 }
+
+const def = getDef(TabbedPaneComponent);
+
+def.directiveDefs = [
+    getDef(NgIf),
+    getDef(NgForOf)
+];
