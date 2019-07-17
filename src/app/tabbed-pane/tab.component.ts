@@ -30,9 +30,3 @@ export class TabComponent implements OnInit {
         }
     }
 }
-
-// const def = getDef(TabComponent);
-
-// def.directiveDefs = [
-//     ...getDefs(COMMON_DIRECTIVES)
-// ];

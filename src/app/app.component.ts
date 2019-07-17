@@ -15,15 +15,3 @@ import { ComponentDeps } from './util';
 export class AppComponent {
   title = 'demo';
 }
-
-
-// const def: ComponentDef<AppComponent> = AppComponent['ngComponentDef'];
-// console.debug('def', def);
-
-// const def = getDef(AppComponent);
-
-// def.directiveDefs = [
-//   ...getDefs(TABBEND_PANE_COMPONENTS)
-// ];
-
-// console.debug('AppComponent', def);

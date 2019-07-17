@@ -69,9 +69,3 @@ export class TabbedPaneComponent implements AfterContentInit {
         this.activate(this.tabs[this.currentPage]);
     }
 }
-
-// const def = getDef(TabbedPaneComponent);
-
-// def.directiveDefs = [
-//     ...getDefs(COMMON_DIRECTIVES)
-// ];
