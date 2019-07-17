@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { TabComponent, TabbedPaneComponent } from './tabbed-pane';
-import { getDef } from './util';
+import { TabComponent, TabbedPaneComponent, TABBEND_PANE_COMPONENTS } from './tabbed-pane';
+import { getComponentDef, getDirectiveDef, getDirectiveDefs } from './util';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +12,20 @@ export class AppComponent {
 }
 
 
-
-
 // const def: ComponentDef<AppComponent> = AppComponent['ngComponentDef'];
 // console.debug('def', def);
 
-const def = getDef(AppComponent);
+const def = getComponentDef(AppComponent);
 
 def.directiveDefs = [
-  getDef(TabComponent), 
-  getDef(TabbedPaneComponent)
+  getDirectiveDef(TabComponent), 
+  getDirectiveDef(TabbedPaneComponent)
+];
+
+// Alternative
+
+def.directiveDefs = [
+  ...getDirectiveDefs(TABBEND_PANE_COMPONENTS)
 ];
 
 console.debug('AppComponent', def);

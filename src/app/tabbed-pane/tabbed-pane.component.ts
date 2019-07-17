@@ -1,6 +1,6 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter } from '@angular/core';
 import { TabComponent } from './tab.component';
-import { getDef } from '../util';
+import { getComponentDef, getDirectiveDef } from '../util';
 import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
@@ -65,9 +65,9 @@ export class TabbedPaneComponent implements AfterContentInit {
     }
 }
 
-const def = getDef(TabbedPaneComponent);
+const def = getComponentDef(TabbedPaneComponent);
 
 def.directiveDefs = [
-    getDef(NgIf),
-    getDef(NgForOf)
+    getDirectiveDef(NgIf),
+    getDirectiveDef(NgForOf)
 ];

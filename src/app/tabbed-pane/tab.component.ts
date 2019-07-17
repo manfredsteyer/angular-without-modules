@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Optional } from '@angular/core';
 import { TabbedPaneComponent } from './tabbed-pane.component';
-import { getDef } from '../util';
+import { getComponentDef, getDirectiveDef, getPipeDefs } from '../util';
 import { NgIf, NgForOf } from '@angular/common';
+
+import { ɵComponentDef as ComponentDef } from '@angular/core';
+import { COMMON_PIPES } from '../common';
 
 @Component({
     selector: 'tab',
@@ -26,9 +29,16 @@ export class TabComponent implements OnInit {
     }
 }
 
-const def = getDef(TabComponent);
+const compDef = TabComponent['ngComponentDef'] as ComponentDef<TabComponent>;
+console.debug('compDef', compDef);
+
+const def = getComponentDef(TabComponent);
 
 def.directiveDefs = [
-    getDef(NgIf),
-    getDef(NgForOf)
+    getDirectiveDef(NgIf),
+    getDirectiveDef(NgForOf)
+];
+
+def.pipeDefs = [
+    ...getPipeDefs(COMMON_PIPES)
 ];
