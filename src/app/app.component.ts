@@ -1,15 +1,17 @@
 import { Component} from '@angular/core';
-import { TabComponent, TabbedPaneComponent, TABBEND_PANE_COMPONENTS } from './tabbed-pane';
-import { getDef, getDefs, ComponentDeps } from './util';
+import { TABBEND_PANE_COMPONENTS } from './tabbed-pane';
+import { ComponentDeps } from './util';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-@ComponentDeps([
-  ...TABBEND_PANE_COMPONENTS
-])
+@ComponentDeps({
+  directives: [ 
+    ...TABBEND_PANE_COMPONENTS
+  ]
+})
 export class AppComponent {
   title = 'demo';
 }

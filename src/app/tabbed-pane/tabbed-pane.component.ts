@@ -1,7 +1,6 @@
 import { Component, AfterContentInit, Input, Output, EventEmitter } from '@angular/core';
 import { TabComponent } from './tab.component';
-import { getDef, getDefs, ComponentDeps } from '../util';
-import { NgIf, NgForOf } from '@angular/common';
+import { ComponentDeps } from '../util';
 import { COMMON_DIRECTIVES } from '../common';
 
 @Component({
@@ -28,9 +27,11 @@ import { COMMON_DIRECTIVES } from '../common';
         </div>
     `
 })
-@ComponentDeps([
-    ...COMMON_DIRECTIVES
-])
+@ComponentDeps({
+    directives: [
+        ...COMMON_DIRECTIVES
+    ]
+})
 export class TabbedPaneComponent implements AfterContentInit {
 
     tabs: Array<TabComponent> = [];
