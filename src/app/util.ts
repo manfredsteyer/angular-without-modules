@@ -1,36 +1,35 @@
 import { Type } from "@angular/core";
+
 import { 
   ɵComponentDef as ComponentDef, 
   ɵDirectiveDef as DirectiveDef,
-  ɵPipeDef as PipeDef
+  ɵPipeDef as PipeDef,
 } from '@angular/core';
 
 export function getComponentDef<T>(t: Type<T>): ComponentDef<T> {
-  if (t['ngComponentDef']) {
-    return t['ngComponentDef'] as ComponentDef<T>;
+  if (t['ɵcmp']) {
+    return t['ɵcmp'] as ComponentDef<T>;
   }
 
   throw new Error('No Angular definition found for ' + t.name);
 }
 
 export function getDirectiveDef<T>(t: Type<T>): DirectiveDef<T> {
- 
-    if (t['ngDirectiveDef']) {
-      return t['ngDirectiveDef'] as DirectiveDef<T>;
+    if (t['ɵdir']) {
+      return t['ɵdir'] as DirectiveDef<T>;
     }
 
     // A Component(Def) is also a Directive(Def)
-    if (t['ngComponentDef']) {
-      return t['ngComponentDef'] as ComponentDef<T>;
+    if (t['ɵcmp']) {
+      return t['ɵcmp'] as ComponentDef<T>;
     }
 
     throw new Error('No Angular definition found for ' + t.name);
 }
 
 export function getPipeDef<T>(t: Type<T>): PipeDef<T> {
- 
-  if (t['ngPipeDef']) {
-    return t['ngPipeDef'] as PipeDef<T>;
+  if (t['ɵpipe']) {
+    return t['ɵpipe'] as PipeDef<T>;
   }
 
   throw new Error('No Angular definition found for ' + t.name);
