@@ -13,4 +13,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 // Alternative: Directly bootstrap AppComponent w/o AppModule
 // More Infos: see app.module.ts
-// renderComponent(AppComponent);
+// renderComponent(AppComponent, { 
+//   rendererFactory: null
+// });
+

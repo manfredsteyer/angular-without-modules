@@ -2,7 +2,6 @@ import { Component, AfterContentInit, Input, Output, EventEmitter } from '@angul
 import { TabComponent } from './tab.component';
 import { ComponentDeps } from '../util';
 import { COMMON_DIRECTIVES } from '../common';
-import { JsonPipe } from '@angular/common';
 
 @Component({
     selector: 'tabbed-pane',

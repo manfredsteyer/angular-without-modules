@@ -4,7 +4,7 @@ import { ComponentDeps } from '../util';
 import { COMMON_DIRECTIVES } from '../common';
 
 @Component({
-    selector: 'simple-tab',
+    selector: 'tab',
     template: `
         <div *ngIf="visible">
             <h2>{{title}}</h2>
